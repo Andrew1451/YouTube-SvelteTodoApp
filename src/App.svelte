@@ -1,5 +1,6 @@
 <script>
 	import Navbar from './Navbar.svelte';
+	import Todo from './Todo.svelte';
 
 	let todo = '';
 	let todos = [];
@@ -20,7 +21,7 @@
 		<p>Add todos!</p>
 	{:else}
 		{#each todos as todo}
-			<p>{todo}</p>
+			<Todo todo={todo} />
 		{/each}
 	{/if}
 </main>
