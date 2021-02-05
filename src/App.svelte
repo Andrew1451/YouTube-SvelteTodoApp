@@ -9,6 +9,10 @@
 		todos = [...todos, todo];
 		todo = '';
 	}
+	const deleteTodo = event => {
+		todos = todos.filter((todo, i) => i !== event.detail);
+	}
+
 </script>
 
 <Navbar />
@@ -20,8 +24,8 @@
 	{#if todos.length === 0}
 		<p>Add todos!</p>
 	{:else}
-		{#each todos as todo}
-			<Todo todo={todo} />
+		{#each todos as todo, index}
+			<Todo todo={todo} index={index} on:delete={deleteTodo} />
 		{/each}
 	{/if}
 </main>
